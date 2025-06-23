@@ -261,7 +261,8 @@ function pwcc_filter_style_loader_tag( $tag, $handle, $href, $media ) {
 		return $tag;
 	}
 
-	$rel = isset( $obj->extra['alt'] ) && $obj->extra['alt'] ? 'alternate stylesheet' : 'stylesheet';
+        // Use the correct variable when checking for the 'alt' flag.
+        $rel = isset( $style->extra['alt'] ) && $style->extra['alt'] ? 'alternate stylesheet' : 'stylesheet';
 
 	$tag  = sprintf( '<noscript>%s</noscript>', $tag );
 	$tag .= sprintf(
